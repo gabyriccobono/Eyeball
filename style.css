@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #EFCBAE;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.eye {
+    width: 460px;
+    height: 450px;
+    background: #FAFFFE;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    border-radius: 75% 0;
+    box-shadow: 5px  1px  20px  5px  gray  inset;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ball {
+    width: 140px;
+    height: 140px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 5px  5px  20px  5px rgb(122, 70, 25);
+}
+
+.bigball {
+    width: 280px;
+    height: 280px;
+    background: #719c5c;
+    position: absolute;
+    top: 55%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    box-shadow: 5px  5px  20px  5px rgba(15, 15, 143, 0.707) inset;
+    border-radius: 50%;
+}
+
+.shut {
+    width: 650px;
+    height: 420px;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 999;
+}
+
+.shut span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 30%;
+    background: #F2BC8F;
+    border-radius: 0 0 60% 60%;
+    transition: 0.4s all;
+
+
+    @keyframes blink {
+        0% {
+            height: 20%;
+        }
+        50% {
+            height: 100%
+        }
+        100% {
+            height: 20%
+        }
+    }
+}
+
+.eye:hover > .shut span:not(.shut-locked) {
+    height: 100%;
+}
+
+.shut-locked {
+    height: 100% !important;
+}
+
+#poem-vertical {
+    position: absolute;
+    top: -10%;
+    left: 50%;  /* Position the poem 60% away from the left side of the eye */
+    width: 380px;  /* Adjust width as needed */
+    height: 100%; 
+    transform: rotate(-45deg);
+    overflow: hidden;  /* Keep poem inside eye */
+}
+
+
+.poem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-200%);
+    background: #32beff60;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+}
+  
+.scroll-up{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    animation: scroll-up 30s infinite linear;
+    }
+
+    @keyframes scroll-up {
+        from {
+            transform: translate(-60%, 20%);
+        }
+        to {
+            transform: translate(-60%, -130%);
+        }
+    }
+
+    #text-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        padding: 20px;
+        background: #2cbbfe75;
+        border: 2px solid #0096fb;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        display: none;
+    }
+    
+    #text-box button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background: #0096fb;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    #text-box button:hover {
+        background: #0058fb;
+    }
+    
+    /* Hidden class to toggle visibility */
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .eye {
+            width: 90vw;
+            height: 90vw;
+        }
+    }
+    
+    
